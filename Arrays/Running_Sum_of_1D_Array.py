@@ -7,5 +7,3 @@ class Solution:
         for i in range(1,len(nums)):
             a.append(a[i-1]+nums[i])
         return a
-            
-        
