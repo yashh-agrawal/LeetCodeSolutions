@@ -37,5 +37,3 @@ class Solution:
             else:
                 ans += a[s[i]]
         return ans
-
-        
