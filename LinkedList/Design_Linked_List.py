@@ -12,6 +12,8 @@
 # void addAtIndex(int index, int val) Add a node of value val before the indexth node in the linked list. If index equals the length of the linked list, the node will be appended to the end of the linked list. If index is greater than the length, the node will not be inserted.
 # void deleteAtIndex(int index) Delete the indexth node in the linked list, if the index is valid.
 
+#Singly Linked List
+
 class Node:
     def __init__(self, val=0, nextNode=None):
         self.val = val
@@ -61,7 +63,60 @@ class MyLinkedList:
         prev.next = prev.next.next
         self.size -= 1
         
+#Doubly Linked List
 
+class Node:
+    def __init__(self,val):
+        self.next = None
+        self.prev = None
+        self.val = val
+
+class MyLinkedList:
+
+    def __init__(self):
+        self.head = Node(0)
+        self.prev = None
+        self.size = 0
+
+    def get(self, index: int) -> int:
+        if index<0 or index >= self.size:
+            return -1
+        cur = self.head
+        for _ in range(index + 1):
+            cur = cur.next
+        return cur.val
+        
+    def addAtHead(self, val: int) -> None:
+        self.addAtIndex(0, val)
+        
+
+    def addAtTail(self, val: int) -> None:
+        self.addAtIndex(self.size, val)
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        if index<0 or index>self.size:
+            return
+        prev = self.head
+        for _ in range(index):
+            prev = prev.next
+        newNode = Node(val)
+        newNode.next = prev.next
+        if prev.next:
+            prev.next.prev = newNode
+        prev.next = newNode
+        newNode.prev = prev
+        self.size += 1
+        
+    def deleteAtIndex(self, index: int) -> None:
+        if index<0 or index>=self.size:
+            return
+        prev = self.head
+        for _ in range(index):
+            prev = prev.next
+        prev.next = prev.next.next
+        if prev.next:
+            prev.next.prev = prev
+        self.size -= 1
 
 # Your MyLinkedList object will be instantiated and called as such:
 # obj = MyLinkedList()
