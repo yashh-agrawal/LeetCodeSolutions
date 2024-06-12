@@ -17,3 +17,23 @@ class Solution:
                 if nums[j]>nums[j+1]:
                     nums[j], nums[j+1] = nums[j+1],nums[j]
         return nums
+    
+#Approach 2
+
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        low, mid, high = 0, 0, len(nums) -1
+
+        while mid<=high:
+            if nums[mid]==0:
+                nums[mid], nums[low] = nums[low], nums[mid]
+                mid += 1
+                low += 1
+            elif nums[mid] == 1:
+                mid += 1
+            else:
+                nums[high], nums[mid] = nums[mid], nums[high]
+                high -= 1
