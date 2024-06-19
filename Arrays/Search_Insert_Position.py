@@ -13,6 +13,7 @@ class Solution:
         return len(nums)
 
 #Approach II (Binary Search)
+    
 class Solution:
     def searchInsert(self, nums: List[int], target: int) -> int:
         left = 0
