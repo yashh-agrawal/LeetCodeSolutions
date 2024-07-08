@@ -20,3 +20,12 @@ class Solution:
                 return 0
             return (recursion(n-1,k) + k) % n
         return recursion(n,k)+1
+    
+# Approach 2
+    
+class Solution:
+    def findTheWinner(self, n: int, k: int) -> int:
+        idx = 0
+        for i in range(1, n+1):
+            idx = (idx + k) % i
+        return idx + 1
