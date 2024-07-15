@@ -32,4 +32,4 @@ class Solution:
                     else:
                         healths[stack[-1]] -= 1
                     healths[i] = 0
-        return [h for h in healths if h]
+        return [h for h in healths if h ]
