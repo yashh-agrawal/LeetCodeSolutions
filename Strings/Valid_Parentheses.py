@@ -18,4 +18,3 @@ class Solution:
                 if not stack or mapping[char] != stack.pop():
                     return False
         return not stack    
-
