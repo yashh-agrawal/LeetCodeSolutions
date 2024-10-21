@@ -20,7 +20,7 @@ class Solution:
 
 #Approach 2: Binary Search
     
-    class Solution:
+class Solution:
     def mySqrt(self, x: int) -> int:
         if x == 0:
             return 0
