@@ -14,3 +14,19 @@ class Solution:
             cur_prod = cur_prod * cur_prod
             n = n//2
         return power
+
+#Approach 2
+    
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+
+        def power(base=x, exponent=abs(n)):
+            if exponent == 0:
+                return 1
+            elif exponent % 2 == 0:
+                return power(base * base, exponent // 2)
+            else:
+                return base * power(base*base, (exponent -1 ) // 2)
+        p = power()
+
+        return float(p) if n >=0 else 1/p
